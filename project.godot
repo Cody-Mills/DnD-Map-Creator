@@ -1,0 +1,27 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="DnD-Map-Creator"
+config/description="A simple D&D Map creator for Godot. This map creator is designed to make maps compatiable for the 'GRID - Customizable Table' Mod by ulia for Tabletop Simulator. "
+config/use_custom_user_dir=true
+config/custom_user_dir_name="NewGrooveGames/DnD-Map-Creator"
+config/features=PackedStringArray("4.5", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="DnD-Map-Creator"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
