@@ -1,6 +1,8 @@
-[gd_scene format=3 uid="uid://cvhqix2iy2wd0"]
+[gd_scene load_steps=2 format=3 uid="uid://cvhqix2iy2wd0"]
 
-[node name="Item Select" type="Control"]
+[ext_resource type="PackedScene" uid="uid://cued67ffjnsbd" path="res://scenes/Items/item_test.tscn" id="1_8v353"]
+
+[node name="Item Selector" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,4 +40,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Dungeon/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Item Test" parent="TabContainer/Dungeon/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_8v353")]
 layout_mode = 2

@@ -1,9 +1,15 @@
-[gd_scene format=3 uid="uid://ddb6u6do1vu24"]
+[gd_scene load_steps=3 format=3 uid="uid://ddb6u6do1vu24"]
+
+[ext_resource type="Script" uid="uid://bie5s8ll87tfc" path="res://scripts/EditorObject.cs" id="1_mmx3d"]
+[ext_resource type="Script" uid="uid://ca4wn8qq3677u" path="res://scripts/Sprite.cs" id="2_r66xs"]
 
 [node name="Map Creator" type="Node2D"]
 
 [node name="Level" type="Node2D" parent="."]
 
 [node name="Editor_Object" type="Node2D" parent="."]
+script = ExtResource("1_mmx3d")
 
 [node name="Sprite" type="Sprite2D" parent="Editor_Object"]
+position = Vector2(802, -74)
+script = ExtResource("2_r66xs")

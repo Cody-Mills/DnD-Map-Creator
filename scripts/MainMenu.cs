@@ -19,9 +19,10 @@ public partial class MainMenu : CanvasLayer
     }
 
     private void CreatePressed()
-    {
-        //Load Creation UI
-        GD.Print("Create");
+    {        
+        //Map Creator
+        GetTree().Root.AddChild(GD.Load<PackedScene>("uid://ddb6u6do1vu24").Instantiate());
+        this.QueueFree();
     }
 
     private void LoadPressed()
