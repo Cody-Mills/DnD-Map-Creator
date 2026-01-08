@@ -1,78 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddb6u6do1vu24"]
+[gd_scene load_steps=5 format=3 uid="uid://ddb6u6do1vu24"]
 
 [ext_resource type="Script" uid="uid://2x3bw1gi34ec" path="res://scripts/MapCreator.cs" id="1_4vdni"]
 [ext_resource type="Texture2D" uid="uid://bi2hr38o1omux" path="res://original.jpg" id="1_mmx3d"]
-
-[sub_resource type="CSharpScript" id="CSharpScript_mmx3d"]
-script/source = "using Godot;
-using System;
-
-public partial class EditorObject : Node2D
-{
-    private bool _canPlace = true;
-    private PackedScene _currentItem;
-
-    private Node _level;
-
-    public override void _EnterTree()
-    {
-        //From Item.cs
-        EventManager.ItemSelectedEvent += ItemSelected;
-    }
-
-    public override void _Ready()
-    {
-        _level = GetNode(\"/root/Map Creator/Level\");
-    }
-
-    private void ItemSelected(PackedScene scene)
-    {
-        _currentItem = scene;
-    }
-
-    public override void _Process(double delta)
-    {
-        //Placing the acutal sprite logic
-        
-        // GlobalPosition = GetGlobalMousePosition();
-        // if (_currentItem != null && _canPlace && Input.IsActionJustPressed(\"ui_click\"))
-        // {
-        //     var _newItem = (Node2D)_currentItem.Instantiate(); 
-        //     _level.AddChild(_newItem);
-
-        //     _newItem.GlobalPosition = GetGlobalMousePosition();
-        // }
-    }
-
-    public override void _ExitTree()
-    {
-        EventManager.ItemSelectedEvent -= ItemSelected;
-    }
-}
-"
-
-[sub_resource type="CSharpScript" id="CSharpScript_4vdni"]
-script/source = "using Godot;
-using System;
-
-public partial class Sprite : Sprite2D
-{
-    public override void _EnterTree()
-    {
-        EventManager.ItemSelectedEvent += ItemSelected;
-    }
-
-    private void ItemSelected(PackedScene scene)
-    {
-        EventManager.BroadcastSendTextureEvent(this.Texture);
-    }
-
-    public override void _ExitTree()
-    {
-        EventManager.ItemSelectedEvent -= ItemSelected;
-    }
-}
-"
 
 [sub_resource type="TileSet" id="TileSet_4vdni"]
 tile_size = Vector2i(22, 22)
@@ -82,16 +11,18 @@ content_margin_left = 12.0
 content_margin_right = 12.0
 bg_color = Color(0.28485027, 0.2848503, 0.28485018, 1)
 
-[node name="Map_Creator" type="Node2D"]
+[node name="Map Creator" type="Node2D"]
 script = ExtResource("1_4vdni")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(579, 327)
 
 [node name="Level" type="Node2D" parent="."]
 
 [node name="Editor_Object" type="Node2D" parent="."]
-script = SubResource("CSharpScript_mmx3d")
 
-[node name="Cursor_Sprite" type="Sprite2D" parent="Editor_Object"]
-script = SubResource("CSharpScript_4vdni")
+[node name="Cursor Sprite" type="Sprite2D" parent="Editor_Object"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 67)
@@ -106,6 +37,7 @@ scale = Vector2(0.165, 0.165)
 texture = ExtResource("1_mmx3d")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -141,3 +73,6 @@ theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 47
 theme_override_styles/normal = SubResource("StyleBoxFlat_mmx3d")
 text = "SAVE"
+
+[node name="Screenshot Camera" type="Camera2D" parent="."]
+unique_name_in_owner = true
