@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cd3qka15qg6xl"]
+
+[node name="Main Menu" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.5
+offset_top = -21.0
+offset_right = 186.5
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Create Map Button" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "CREATE MAP"
+
+[node name="Load Map Button" type="Button" parent="Control/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "LOAD MAP"
+
+[node name="Exit Button" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "EXIT"
+
+[node name="Title" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -564.5
+offset_top = 133.0
+offset_right = 564.5
+offset_bottom = 298.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 100
+text = "D&D MAP CREATOR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="By Cody Mills Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 681.0
+offset_top = 268.0
+offset_right = 783.0
+offset_bottom = 291.0
+text = "By Cody Mills"
