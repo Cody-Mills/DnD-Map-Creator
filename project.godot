@@ -12,6 +12,7 @@ config_version=5
 
 config/name="DnD-Map-Creator"
 config/description="A simple D&D Map creator for Godot. This map creator is designed to make maps compatiable for the 'GRID - Customizable Table' Mod by ulia for Tabletop Simulator. "
+run/main_scene="uid://cd3qka15qg6xl"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="NewGrooveGames/DnD-Map-Creator"
 config/features=PackedStringArray("4.5", "GL Compatibility")
