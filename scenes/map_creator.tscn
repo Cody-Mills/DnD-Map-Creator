@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ddb6u6do1vu24"]
+
+[node name="Map Creator" type="Node2D"]
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Editor_Object" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="Editor_Object"]

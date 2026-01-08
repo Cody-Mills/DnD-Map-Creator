@@ -15,12 +15,20 @@ config/description="A simple D&D Map creator for Godot. This map creator is desi
 run/main_scene="uid://cd3qka15qg6xl"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="NewGrooveGames/DnD-Map-Creator"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="DnD-Map-Creator"
+
+[input]
+
+ui_click={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
 
 [rendering]
 
