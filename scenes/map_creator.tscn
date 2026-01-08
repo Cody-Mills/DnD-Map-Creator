@@ -1,15 +1,90 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddb6u6do1vu24"]
+[gd_scene load_steps=4 format=3 uid="uid://ddb6u6do1vu24"]
 
-[ext_resource type="Script" uid="uid://bie5s8ll87tfc" path="res://scripts/EditorObject.cs" id="1_mmx3d"]
-[ext_resource type="Script" uid="uid://ca4wn8qq3677u" path="res://scripts/Sprite.cs" id="2_r66xs"]
+[ext_resource type="PackedScene" uid="uid://cvhqix2iy2wd0" path="res://scenes/item_select.tscn" id="2_4vdni"]
 
-[node name="Map Creator" type="Node2D"]
+[sub_resource type="CSharpScript" id="CSharpScript_mmx3d"]
+script/source = "using Godot;
+using System;
+
+public partial class EditorObject : Node2D
+{
+    private bool _canPlace = true;
+    private PackedScene _currentItem;
+
+    private Node _level;
+
+    public override void _EnterTree()
+    {
+        //From Item.cs
+        EventManager.ItemSelectedEvent += ItemSelected;
+    }
+
+    public override void _Ready()
+    {
+        _level = GetNode(\"/root/Map Creator/Level\");
+    }
+
+    private void ItemSelected(PackedScene scene)
+    {
+        _currentItem = scene;
+    }
+
+    public override void _Process(double delta)
+    {
+        //Placing the acutal sprite logic
+        
+        // GlobalPosition = GetGlobalMousePosition();
+        // if (_currentItem != null && _canPlace && Input.IsActionJustPressed(\"ui_click\"))
+        // {
+        //     var _newItem = (Node2D)_currentItem.Instantiate(); 
+        //     _level.AddChild(_newItem);
+
+        //     _newItem.GlobalPosition = GetGlobalMousePosition();
+        // }
+    }
+
+    public override void _ExitTree()
+    {
+        EventManager.ItemSelectedEvent -= ItemSelected;
+    }
+}
+"
+
+[sub_resource type="CSharpScript" id="CSharpScript_4vdni"]
+script/source = "using Godot;
+using System;
+
+public partial class Sprite : Sprite2D
+{
+    public override void _EnterTree()
+    {
+        EventManager.ItemSelectedEvent += ItemSelected;
+    }
+
+    private void ItemSelected(PackedScene scene)
+    {
+        EventManager.BroadcastSendTextureEvent(this.Texture);
+    }
+
+    public override void _ExitTree()
+    {
+        EventManager.ItemSelectedEvent -= ItemSelected;
+    }
+}
+"
+
+[node name="Map_Creator" type="Node2D"]
 
 [node name="Level" type="Node2D" parent="."]
 
 [node name="Editor_Object" type="Node2D" parent="."]
-script = ExtResource("1_mmx3d")
+script = SubResource("CSharpScript_mmx3d")
 
-[node name="Sprite" type="Sprite2D" parent="Editor_Object"]
-position = Vector2(802, -74)
-script = ExtResource("2_r66xs")
+[node name="Cursor_Sprite" type="Sprite2D" parent="Editor_Object"]
+script = SubResource("CSharpScript_4vdni")
+
+[node name="Item Selector" parent="." instance=ExtResource("2_4vdni")]
+offset_left = 562.0
+offset_top = 103.0
+offset_right = 562.0
+offset_bottom = 103.0

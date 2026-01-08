@@ -68,3 +68,11 @@ offset_top = 268.0
 offset_right = 783.0
 offset_bottom = 291.0
 text = "By Cody Mills"
+
+[node name="Software Version" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1037.0
+offset_top = 615.0
+offset_right = 1139.0
+offset_bottom = 638.0
+text = "Version 0.1"
