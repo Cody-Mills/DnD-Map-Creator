@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvhqix2iy2wd0"]
-
-[ext_resource type="PackedScene" uid="uid://ca1jyd68cow8x" path="res://scenes/Item UI/godot_item_ui.tscn" id="1_8v353"]
+[gd_scene format=3 uid="uid://cvhqix2iy2wd0"]
 
 [node name="Item Selector" type="Control"]
 layout_mode = 3
@@ -40,7 +38,4 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Dungeon/MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Godot Item UI" parent="TabContainer/Dungeon/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_8v353")]
 layout_mode = 2

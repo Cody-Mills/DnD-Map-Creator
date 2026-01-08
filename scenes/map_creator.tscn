@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddb6u6do1vu24"]
+[gd_scene load_steps=7 format=3 uid="uid://ddb6u6do1vu24"]
 
+[ext_resource type="Script" uid="uid://2x3bw1gi34ec" path="res://scripts/MapCreator.cs" id="1_4vdni"]
 [ext_resource type="Texture2D" uid="uid://bi2hr38o1omux" path="res://original.jpg" id="1_mmx3d"]
 
 [sub_resource type="CSharpScript" id="CSharpScript_mmx3d"]
@@ -76,7 +77,13 @@ public partial class Sprite : Sprite2D
 [sub_resource type="TileSet" id="TileSet_4vdni"]
 tile_size = Vector2i(22, 22)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmx3d"]
+content_margin_left = 12.0
+content_margin_right = 12.0
+bg_color = Color(0.28485027, 0.2848503, 0.28485018, 1)
+
 [node name="Map_Creator" type="Node2D"]
+script = ExtResource("1_4vdni")
 
 [node name="Level" type="Node2D" parent="."]
 
@@ -97,3 +104,40 @@ offset_right = 6999.0
 offset_bottom = 6743.0
 scale = Vector2(0.165, 0.165)
 texture = ExtResource("1_mmx3d")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Top HBox" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 66.0
+grow_horizontal = 2
+theme_override_constants/separation = 4
+
+[node name="Bottom HBox" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -74.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Save" type="Button" parent="CanvasLayer/Control/Bottom HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 47
+theme_override_styles/normal = SubResource("StyleBoxFlat_mmx3d")
+text = "SAVE"
